@@ -1,10 +1,12 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import SearchBar from './search-bar';
 
 export default function MainPage() {
   return (
     <>
+      <SearchBar/>
       <main className="main-page-container">
         <div className="search-block">
           <h5>Search</h5>

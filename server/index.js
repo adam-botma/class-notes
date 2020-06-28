@@ -296,13 +296,13 @@ app.put('/api/notes/:noteId', (req, res, next) => {
 
 });
 
-// SEARCH FOR A NOTE BY PROVIDING THE NOTE TITLE
+// SEARCH FOR A NOTE BY NOTE TITLE AND NOTE CONTENT (working on searching tags - ab)
 app.get('/api/notes/search/:noteTitle', (req, res, next) => {
   const noteTitle = req.params.noteTitle;
   const sql = `
   SELECT "noteTitle", "noteId", "noteDifficulty", "createdAt", "noteContent"
   FROM  "notes"
-  WHERE to_tsvector("noteTitle") @@ to_tsquery($1)
+  WHERE to_tsvector("noteTitle"|| ' ' || "noteContent" ) @@ to_tsquery($1)
   `;
   const title = [noteTitle];
   db.query(sql, title)
