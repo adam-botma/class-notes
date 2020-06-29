@@ -33,7 +33,8 @@ app.get('/api/students/:studentId', (req, res, next) => {
   select *
   from "students"
   join "notebooks" using ("studentId")
-  where "studentId" = $1;`;
+  where "studentId" = $1
+  order by "notebookId";`;
 
   db.query(sql, [studentId])
     .then(result => {
@@ -113,7 +114,8 @@ app.get('/api/notebooks/:notebookId', (req, res, next) => {
   select *
   from "notes"
   join "notebooks" using ("notebookId")
-  where "notebookId" = $1;`;
+  where "notebookId" = $1
+  order by "noteId";`;
 
   db.query(sql, [notebookId])
     .then(result => res.status(200).json(result.rows))

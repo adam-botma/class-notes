@@ -540,6 +540,24 @@ textarea.note-content {
   justify-content: space-between;
 }
 
+.search-container-start{
+width: 100%;
+position: absolute;
+z-index: 1;
+top:-20%;
+left: 0;
+transition: top 1s ease-out;
+}
+
+.search-container-end{
+width: 100%;
+position: absolute;
+z-index: 1;
+top: 0;
+left: 0;
+transition: top 1s ease-out;
+}
+
 .search-text{
   color: #FFFEFE;
   font-family: 'Palanquin';

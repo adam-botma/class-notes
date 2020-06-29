@@ -15,9 +15,10 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-
+    const searchBarClass = this.props.isOpened ? 'search-container search-container-end'
+      : 'search-container search-container-start';
     return (
-      <div className = 'search-container'>
+      <div className= {searchBarClass}>
         <div className = 'search-form'>
           <h3 className= "search-text">Search </h3>
           <FormGroup className="mb-4">
@@ -33,7 +34,7 @@ export default class SearchBar extends React.Component {
             <Input type="text" name="searchTags" className="search-input" id="searchTags" value={this.state.difficultyValue} />
           </FormGroup>
         </div>
-        <i className="fas fa-times fa-2x"></i>
+        <i className="fas fa-times fa-2x" onClick={this.props.closeXClicked}></i>
       </div>
     );
 
