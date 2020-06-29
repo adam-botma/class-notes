@@ -92,7 +92,7 @@ app.get('/api/notes/:noteId', (req, res, next) => {
             return tagsArray;
           })
           .then(tagsArray => {
-            note.tags = tagsArray;
+            note.noteTags = tagsArray;
             res.status(200).json(note);
           })
           .catch(err => next(err));
@@ -186,7 +186,7 @@ app.post('/api/notes', (req, res, next) => {
   db.query(noteSQL)
     .then(response => {
       const newNote = response.rows[0];
-      newNote.tags = noteTags;
+      newNote.noteTags = noteTags;
       res.status(201).json(response.rows[0]);
     })
     .catch(err => next(err));
